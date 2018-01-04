@@ -1,0 +1,90 @@
+.clearfix:after{
+  content: '';
+  display: table;
+  overflow: hidden;
+}
+.clearfix{
+  overflow: hidden;
+}
+.cfff{
+  color: #fff;
+}
+.c999 {
+  color: #999;
+}
+.c666 {
+  color: #666;
+}
+.c333 {
+  color: #333;
+}
+.relative, .rela {
+  position: relative;
+}
+
+.ftc {
+  text-align: center;
+}
+.changepop p.ft20.c666 {
+  font-size: 16px;
+}
+
+.ft20 {
+  font-size: 20px;
+}
+.ft14{
+  font-size: 14px;
+}
+.ft16 {
+  font-size: 16px;
+}
+.mt15{
+  margin-top: 15px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+
+.bgfff{
+  background-color: #fff;
+}
+.fl{
+  float: left;
+}
+.dib {
+  display: inline-block;
+}
+.mt20{
+  margin-top: 20px;
+}
+.ml10{
+  margin-left: 10px;
+}
+.pl10, .pl {
+  padding-left: 10px;
+}
+.pb5 {
+  padding-bottom: 5px;
+}
+.pr10, .pr {
+  padding-right: 10px;
+}
+.pt5 {
+  padding-top: 5px;
+}
+.hottype {
+  padding: 0;
+}
+
+.relative, .rela {
+  position: relative;
+}
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body {
+  line-height: 1.6;
+  font-family: 'Microsoft Yahei',-apple-system-font,Helvetica Neue,sans-serif;
+}
+

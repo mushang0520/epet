@@ -1,0 +1,19 @@
+.epet-search .fl,
+.epet-search .search-text,
+.epet-search .epet-category {
+  float: left;
+}
+.dscroll-ul .dscroll-li {
+  float: left;
+  width: 1.1037037rem;
+  height: 0.53333333rem;
+}
+.dscroll-li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 0.53333333rem;
+  font-size: 0.20740741rem;
+  text-align: center;
+  color: #666;
+}
