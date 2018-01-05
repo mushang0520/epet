@@ -17,8 +17,11 @@
               <span class="time1-1">00</span>
             </div>
           </div>
-          <div class="more"><a href="http://wap.epet.com/surprise/Main.html?pet_type=dog&amp;fw=0" class="db ftr"><img
-            src="https://img2.epetbar.com/nowater/2017-12/13/10/bc4f0db8483e9084f5923cb92bfe2b7a.jpg"></a></div>
+          <div class="more">
+            <a href="http://wap.epet.com/surprise/Main.html?pet_type=dog&amp;fw=0" class="db ftr">
+            <img src="https://img2.epetbar.com/nowater/2017-12/13/10/bc4f0db8483e9084f5923cb92bfe2b7a.jpg">
+            </a>
+          </div>
         </div>
         <div class="surprise-pro pl5 mb10">
           <div class="swiper-container surprise-scroll swiper-container-horizontal">
@@ -51,5 +54,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+.surprise_day
+  .surprise
+    .surprise-tit
 
 </style>

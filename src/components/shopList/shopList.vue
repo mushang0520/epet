@@ -43,13 +43,14 @@
           </div>
         </div>
       </div>
-
+      <dynamic />
     </div>
   </div>
 </template>
 
 <script>
   import {mapState} from 'vuex'
+  import dynamic from '../dynamic/dynamic.vue'
   export default {
     computed: {
       ...mapState(['main']),
@@ -66,6 +67,9 @@
 
         return m
       }
+    },
+    components:{
+      dynamic
     }
   }
 
