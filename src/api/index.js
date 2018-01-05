@@ -18,6 +18,9 @@ let data={
 export function GetMain(){
   return axios.get('/api/main')
 }
+export function GetDynamic(){
+  return axios.get('/api/dynamic')
+}
 //export const getMain = () =>fetch('test/v3/index/main.html',data)
 
 

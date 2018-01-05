@@ -24,6 +24,7 @@
 
     mounted(){
       this.$store.dispatch('getMain')
+      this.$store.dispatch('getDynamic')
     },
     components:{
       epetFooter

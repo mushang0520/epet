@@ -43,7 +43,12 @@
           </div>
         </div>
       </div>
-      <dynamic />
+      <!--每日疯抢-->
+      <dynamic/>
+      <!--e宠团-->
+      <eGroupBuy/>
+
+
     </div>
   </div>
 </template>
@@ -51,14 +56,15 @@
 <script>
   import {mapState} from 'vuex'
   import dynamic from '../dynamic/dynamic.vue'
+  import eGroupBuy from '../eGroupBuy/eGroupBuy.vue'
   export default {
     computed: {
       ...mapState(['main']),
       menus(){
         var m = []
-        if (this.main.datas &&　this.main.datas[2].index == "3047") {
+        if (this.main.datas && this.main.datas[2].index == "3047") {
           m = this.main.datas[2].menus
-        } else if(this.main.datas) {
+        } else if (this.main.datas) {
           var obj = this.main.datas.find((value, inde) => {
             return value.index == "3047"
           })
@@ -68,8 +74,9 @@
         return m
       }
     },
-    components:{
-      dynamic
+    components: {
+      dynamic,
+      eGroupBuy
     }
   }
 

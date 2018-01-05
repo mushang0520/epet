@@ -1,20 +1,20 @@
 <template>
   <div>
-    <div class="surprise_day"><!---->
-      <div class="surprise">
+    <div class="surprise_day" ><!---->
+      <div class="surprise" v-if="dynamic.data">
         <div class="surprise-tit clearfix pad10 rela overflow">
           <div class="fl titimg">
-            <img src="//static.epetbar.com/static_web/wap/src/images/suprice.png">
+            <img src="./img/suprice.png">
           </div>
           <div class="fl ft13 ml10" style="margin-top: 1px;">距本场结束</div>
-          <div class="fl surprise-time hide">1515056400</div>
+          <div class="fl surprise-time hide">{{dynamic.data['3'].time}}</div>
           <div class="time ftc fl ml5">
             <div class="time1 dib clearfix ft12 dtime">
-              <span class="time1-1">00</span>
+              <span class="time1-1">{{hour}}</span>
               <span class="time-zi ft12">:</span>
-              <span class="time1-1">00</span>
+              <span class="time1-1">{{min}}</span>
               <span class="time-zi ft12">:</span>
-              <span class="time1-1">00</span>
+              <span class="time1-1">{{sec}}</span>
             </div>
           </div>
           <div class="more">
@@ -24,23 +24,23 @@
           </div>
         </div>
         <div class="surprise-pro pl5 mb10">
-          <div class="swiper-container surprise-scroll swiper-container-horizontal">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide swiper-slide-active" style="width: 98.5714px; margin-right: 10px;">
+          <div ref="sps">
+            <div  class="surprise-scroll " :style="`width:${dynamic.data['3'].goods.length*100+100}px`">
+              <div class="swiper-slide" style="width: 98.5714px; margin-right: 10px;" v-for="(good,index) in dynamic.data['3'].goods" :key="index">
                 <div class="pro-block">
                   <a href="http://wap.epet.com/surprise/Main.html?pet_type=dog&amp;fw=0">
-                  <div class="thispro-img loadimg-nofixed">
-                    <img class="image" src="https://img1.epetbar.com/2016-07/11/10/8a25d4fa65db9cb7cc9e2910b9041c3b.jpg@!300w-b" lazy="loaded"> <!----> <!---->
-                  </div>
-                  <div class="cred ftc mt5">
-                    <span class="ft12">¥</span>
-                    <span class="ft17">1.50</span>
-                  </div>
-                  <p class="c999 ftc ft12">省￥13.50</p>
-                </a>
+                    <div class="thispro-img loadimg-nofixed">
+                      <img class="image" style="width: 100%" :src="good.image.image">
+                    </div>
+                    <div class="cred ftc mt5">
+                      <span class="ft12">¥</span>
+                      <span class="ft17">{{good.sale_price}}</span>
+                    </div>
+                    <p class="c999 ftc ft12">{{good.little_price}}</p>
+                  </a>
                 </div>
               </div>
-             </div>
+            </div>
           </div>
         </div>
       </div>
@@ -49,7 +49,52 @@
 </template>
 
 <script>
-  export default {}
+  import {mapState} from 'vuex'
+  import BScroll from 'better-scroll'
+  export default {
+    data(){
+      return{
+        //endTime:this.dynamic&&this.dynamic.sys_time
+        hour:'00',
+        min:'00',
+        sec:'00',
+        timer:0
+      }
+    },
+    watch:{
+      dynamic(){
+          if(this.scroll){
+            this.scroll.refresh()
+          }else{
+            this.$nextTick(()=>{
+              console.log('this.$refs.sps',this.$refs.sps);
+              this.scroll=new BScroll(this.$refs.sps,{click: true, scrollX: true})
+
+            })
+          }
+        let endTime=this.dynamic.data['3'].time
+        this.timer=setInterval(()=>{
+          let date=parseInt((new Date()).getTime().toString().slice(0,10))
+          let timeDiff=endTime-date
+          let hour=Math.floor(timeDiff/3600)
+          let min=Math.floor((timeDiff-hour*3600)/60)
+          let sec=(endTime-date)%60
+          this.hour = (''+hour).length==1 ? '0'+hour:hour
+          this.min = (''+min).length==1 ? '0'+min:min
+          this.sec = (''+sec).length==1 ? '0'+sec:sec
+        },1000)
+
+
+      }
+    },
+    computed:{
+      ...mapState(['dynamic'])
+
+    },
+    beforeDestroy(){
+      clearInterval(this.timer)
+    }
+  }
 
 </script>
 
@@ -57,5 +102,44 @@
 .surprise_day
   .surprise
     .surprise-tit
+      .titimg
+        img
+          display block
+          height: 24px;
+          margin-left: -20px;
+      .time
+        .time1
+          .time1-1
+            border 1px solid #ddd
+            padding 1px 2px
+            font-size 13px
+      .more
+        position: absolute;
+        top: 2px;
+        right: -8px;
+        a
+          text-align: right;
+          display block
+          width 100%
+          height 100%
+          img
+            margin: 0 0 0 auto;
+            width: 50%;
+            border: 0;
+
+    .surprise-pro
+      overflow hidden
+      .surprise-scroll
+        overflow hidden
+        .swiper-slide
+          float left
+          .pro-block
+            margin: 0 0.5em;
+            a
+              display: block;
+              .thispro-img
+                .image
+                  display: block;
+                  width 100%
 
 </style>

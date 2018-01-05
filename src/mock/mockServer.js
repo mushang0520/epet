@@ -8,4 +8,9 @@ Mock.mock('/api/main', {
   data: data.main
 })
 
+Mock.mock('/api/dynamic', {
+  code: 0,
+  data: data.dynamic
+})
+
 
