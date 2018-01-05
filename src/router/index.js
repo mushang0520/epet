@@ -6,18 +6,19 @@ import cart from '../pages/cart/cart.vue'
 import user from '../pages/user/user.vue'
 import place from '../pages/place/place.vue'
 
-
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/home',
+      meta: {keepAlive: true, isTop: true}
     },
     {
       path: '/home',
-      component: home
+      component: home,
+      meta: {keepAlive: true, isTop: true}
     },
     {
       path: '/place',
@@ -25,7 +26,8 @@ export default new Router({
     },
     {
       path: '/category',
-      component: category
+      component: category,
+      meta: {keepAlive: true, isTop: true}
     },
     {
       path: '/cart',

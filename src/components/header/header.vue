@@ -31,15 +31,14 @@
             <div ref="findNav" class="find_nav_left dscroll">
               <div class="find_nav_list dscroll-div" style="width: 140%;">
                 <ul class="dscroll-ul" v-if="main.code">
-                  <li class="dscroll-li on" v-for="(menu,index) in main.menus" :key="menu.menu_id">
-                    <a v-if="menu.menu_id==0"
-                       :href="`https://wap.epet.com/main.html?menu_param=${menu.menu_param}&amp;pet_type=${menu.epetPageTag.big_type}&amp;fw=0`">
-                        <span class="rela">
-                          <span>{{menu.menu_name}}</span>
-                        <i></i>
-                        </span>
+                  <li class="dscroll-li"  v-for="(menu,index) in main.menus" :class="{on: index==NO}" @click="showGreenLine(index)" :key="menu.menu_id">
+                    <a v-if="menu.menu_id === '1'" :href="`https://wap.epet.com/main.html?menu_param=${menu.menu_param}&amp;pet_type=${menu.epetPageTag.big_type}&amp;fw=0`">
+                      <span class="rela">
+                        <span>{{menu.menu_name}}</span>
+                      <i></i>
+                      </span>
                     </a>
-                    <a v-if="menu.menu_id != 0" :href="menu.menu_target">
+                    <a v-else href="###">
                         <span class="rela">
                           <span>{{menu.menu_name}}</span>
                         <i></i>
@@ -96,7 +95,7 @@
   export default {
     data(){
       return {
-
+        NO:0
       }
     },
     computed: {
@@ -116,6 +115,9 @@
           this.$refs.changepop.style='transform:scale(1)'
         }else{this.$refs.changepop.style='transform:scale(0)'
         }
+      },
+      showGreenLine(index){
+        this.NO=index
       }
     },
     mounted(){
@@ -180,6 +182,7 @@
           min-width: 320px;
           &>.find_nav_left
             width: 100%;
+            overflow hidden
             &>.find_nav_list
               overflow: hidden
               &>.dscroll-ul
@@ -247,7 +250,7 @@
           z-index: 102;
           .main
             width: 100%;
-            max-width: 640px;
+            overflow hidden
             margin: auto;
             p>.b-line
               width: 100%;

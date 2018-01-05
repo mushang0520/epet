@@ -43,6 +43,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -54,9 +55,9 @@
       ...mapState(['main']),
       menus(){
         var m = []
-        if (this.main.datas[2].index == "3047") {
+        if (this.main.datas &&　this.main.datas[2].index == "3047") {
           m = this.main.datas[2].menus
-        } else {
+        } else if(this.main.datas) {
           var obj = this.main.datas.find((value, inde) => {
             return value.index == "3047"
           })

@@ -9,4 +9,3 @@ Mock.mock('/api/main', {
 })
 
 
-// export default xxx  不需要

@@ -44,7 +44,9 @@
 .mt20 {
   margin-top: 20px;
 }
-
+.page-line{
+  height: 10px;
+}
 .bgfff{
   background-color: #fff;
 }
@@ -86,5 +88,32 @@ a {
 body {
   line-height: 1.6;
   font-family: 'Microsoft Yahei',-apple-system-font,Helvetica Neue,sans-serif;
+}
+.find_nav_list ul li.on i {
+  background: #459d36;
+}
+.find_nav_list li .rela{
+  display: inline-block;
+  height: 100%;
+}
+.find_nav_list li i {
+  position: absolute;
+  bottom: 1px;
+  left: -10%;
+  width: 120%;
+  height: 2px;
+}
+.find_nav_list ul li.on span {
+  color: #459d36;
+  display: inline-block;
+}
+.floathearder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  z-index: 9;
+  box-shadow: 2px 2px 2px #e9e9e9;
 }
 
