@@ -1,4 +1,6 @@
 
 export const GET_MAIN = 'GET_MAIN'
 export const GET_DYNAMIC = 'GET_DYNAMIC'
+export const GET_CATEGORY = 'GET_CATEGORY'
+export const GET_CATEGORY_CHILDREN = 'GET_CATEGORY_CHILDREN'
 

@@ -76,12 +76,18 @@
         this.timer=setInterval(()=>{
           let date=parseInt((new Date()).getTime().toString().slice(0,10))
           let timeDiff=endTime-date
-          let hour=Math.floor(timeDiff/3600)
-          let min=Math.floor((timeDiff-hour*3600)/60)
-          let sec=(endTime-date)%60
-          this.hour = (''+hour).length==1 ? '0'+hour:hour
-          this.min = (''+min).length==1 ? '0'+min:min
-          this.sec = (''+sec).length==1 ? '0'+sec:sec
+          if(timeDiff>0){
+            let hour=Math.floor(timeDiff/3600)
+            let min=Math.floor((timeDiff-hour*3600)/60)
+            let sec=(endTime-date)%60
+            this.hour = (''+hour).length==1 ? '0'+hour:hour
+            this.min = (''+min).length==1 ? '0'+min:min
+            this.sec = (''+sec).length==1 ? '0'+sec:sec
+          }else{
+            this.hour = '00'
+            this.min = '00'
+            this.sec = '00'
+          }
         },1000)
 
 

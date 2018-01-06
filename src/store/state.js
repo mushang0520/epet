@@ -1,4 +1,6 @@
 export default {
   main:{},
-  dynamic:{}
+  dynamic:{},
+  category:{},
+  categoryChildren:{}
 }

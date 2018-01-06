@@ -1,15 +1,27 @@
 <template>
   <div>
-    <div class="headContent">
-      <div ref="downloadApp" class="downloadApp" :class="{floathearder:isMove}" v-if="isNew">
-        <img src="../../../static/img/downloadApp.jpg">
+    <div class="headContent floathearder">
+      <div ref="downloadApp" class="overflow " style="display: block;" :class="{floathearder:isMove}" v-if="isNew">
+        <div class="overflow rela">
+          <span @click="closeDownload" class="clsoebtn">
+            <img id="close_down_bar" src="//static.epetbar.com/static_wap/lib/common_images/closebtn_03.png">
+          </span>
+          <div class="downloadApp">
+            <a href="http://wap.epet.com/download.html?appname=epetmall" style="display: block;">
+              <img src="../../../static/img/downloadApp.jpg">
+            </a>
+          </div>
+        </div>
       </div>
+     <!-- <div ref="downloadApp" class="downloadApp" :class="{floathearder:isMove}" v-if="isNew">
+        <img src="../../../static/img/downloadApp.jpg">
+      </div>-->
       <div ref="header" class="header" :class="{floathearder:isMove}">
         <epetHeader/>
       </div>
     </div>
 
-    <div id="content">
+    <div id="content"  :class="{wid:isNew,widS:!isNew}">
       <shopList />
     </div>
 
@@ -24,10 +36,9 @@
   export default {
     data(){
       return {
-        isNew: true
+        isNew: !(localStorage.getItem('isNew')=='false')
       }
     },
-    mounted(){console.log(this.$refs.downloadApp.offsetHeight)},
     computed:{
       scrollTop(){return window.screenTop},
       isMove(){
@@ -39,6 +50,10 @@
       shopList
     },
     methods:{
+      closeDownload(){
+        this.isNew=false
+        localStorage.setItem('isNew','false')
+      },
       test(){
         console.log(this.$refs.downloadApp.scrollHeight);
         console.log(window.scrollHeight);
@@ -50,24 +65,24 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .headContent
-
+    .clsoebtn
+      display: inline-block;
+      width: 5%;
+      margin-right: 2%;
+      vertical-align: middle;
+      position: absolute;
+      top: 20%;
+      left: 2%;
+      img
+        width: 100%;
     .downloadApp
       width: 100%
-      height 55px
       &>img
         width: 100%
-        .footer
-          position fixed
-          left 0
-          bottom 0
-          width 100%
-          height 94px
-          & a
-            float left
-            font-size 20px
-            width 25%
-            height 100%
-            text-align center
-            line-height 94px
-
+  .wid
+    position relative
+    top: 161px
+  .widS
+    position relative
+    top: 106px
 </style>

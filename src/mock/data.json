@@ -1716,5 +1716,124 @@
     },
     "push_alias": "appmall_",
     "push_tags": "version358,"
+  },
+  "category": {
+    "msg": "",
+    "code": "succeed",
+    "login_status": 0,
+    "mall_uid": "epet_0",
+    "mall_user": "",
+    "sys_time": 1515203828,
+    "hash": "",
+    "epet_site": "epet",
+    "categorys": [
+      {
+        "cateid": 88888,
+        "name": "为您推荐"
+      },
+      {
+        "cateid": "5",
+        "name": "狗狗主粮"
+      },
+      {
+        "cateid": "6",
+        "name": "狗狗零食"
+      },
+      {
+        "cateid": "55",
+        "name": "狗狗服饰"
+      },
+      {
+        "cateid": "4311",
+        "name": "狗狗窝垫"
+      },
+      {
+        "cateid": "54",
+        "name": "狗狗生活"
+      },
+      {
+        "cateid": "53",
+        "name": "狗狗玩具"
+      },
+      {
+        "cateid": "48",
+        "name": "狗狗保健"
+      },
+      {
+        "cateid": "49",
+        "name": "狗狗医疗"
+      },
+      {
+        "cateid": "2652",
+        "name": "狗狗牵引"
+      },
+      {
+        "cateid": "2651",
+        "name": "狗狗美容"
+      },
+      {
+        "cateid": "3895",
+        "name": "狗狗周边"
+      },
+      {
+        "cateid": "4315",
+        "name": "狗狗清洁"
+      }
+    ]
+  },
+  "category88888": {
+    "msg": "",
+    "code": "succeed",
+    "login_status": 0,
+    "mall_uid": "epet_0",
+    "mall_user": "",
+    "sys_time": 1515203828,
+    "hash": "",
+    "epet_site": "epet",
+    "show_history": 1,
+    "cate_list": [
+      {
+        "title": "热门分类",
+        "rigth_img": {
+          "image": "",
+          "img_size": "",
+          "target": {}
+        },
+        "type": 0,
+        "flag_icon": "",
+        "list": [
+          {
+            "id_param": "cateid_10",
+            "name": "磨牙洁齿",
+            "photo": "https://img2.epetbar.com/nowater/2017-05/26/10/2eeb97d6268f555de24ec370fd0de2ad.jpg"
+          },
+          {
+            "id_param": "cateid_7",
+            "name": "进口狗粮",
+            "photo": "https://img2.epetbar.com/nowater/2016-07/21/14/0f972761c08a37c8baff88fa9302053d.jpg"
+          },
+          {
+            "id_param": "cateid_756",
+            "name": "肠胃调理",
+            "photo": "https://img2.epetbar.com/nowater/2016-08/20/14/8095e54e9414a06705acb7471eac7629.jpg"
+          },
+          {
+            "id_param": "cateid_413",
+            "name": "强化免疫",
+            "photo": "https://img2.epetbar.com/nowater/2017-05/04/16/fd206e6489657294e9067d349ea297f1.jpg"
+          },
+          {
+            "id_param": "cateid_3555",
+            "name": "国产狗粮",
+            "photo": "https://img2.epetbar.com/nowater/2017-05/12/10/f38b8a4245c34c33061d04ad1e8009dd.jpg"
+          },
+          {
+            "id_param": "cateid_521",
+            "name": "体内驱虫",
+            "photo": "https://img2.epetbar.com/nowater/cates/2014-03/24/81f4ac6b5b31143c056046bd9dc14b9e.jpg"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -6,20 +6,22 @@ import axios from 'axios'
 /**
  * 获取主页分类信息
  */
-let time=new Date()
-let data={
-      pet_type:'dog',
-      version:358,
-      is_single:0,
-      system:'wap',
-      isWeb:1,
-      _:time.getTime().toString()
-      }
+
 export function GetMain(){
-  return axios.get('/api/main')
+  let time=new Date()
+  return axios.get('/test/v3/index/main.html?pet_type=dog&version=358&is_single=0&system=wap&isWeb=1&_='+time.getTime())
 }
 export function GetDynamic(){
-  return axios.get('/api/dynamic')
+  let time=new Date()
+  return axios.get('/test/v3/index/main.html?do=GetDynamicV315&pet_type=dog&version=358&system=wap&isWeb=1&_='+time.getTime())
+}
+export function GetCategory(){
+  let time=new Date()
+  return axios.get('/test/v3/goods/category/main.html?pet_type=dog&system=wap&isWeb=1&version=303&_='+time.getTime())
+}
+export function GetCategoryChildren({cateid}){
+  let time=new Date()
+  return axios.get(`/test/v3/goods/category/main.html?do=getChildren&owner=88888&pet_type=dog&system=wap&isWeb=1&version=303&_=${time.getTime()}`)
 }
 //export const getMain = () =>fetch('test/v3/index/main.html',data)
 

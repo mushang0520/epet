@@ -12,5 +12,9 @@ Mock.mock('/api/dynamic', {
   code: 0,
   data: data.dynamic
 })
+Mock.mock('/api/category', {
+  code: 0,
+  data: data.category
+})
 
 

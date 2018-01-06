@@ -1,7 +1,6 @@
 'use strict'
 // Template version: 1.2.8
 // see http://vuejs-templates.github.io/webpack for documentation.
-
 const path = require('path')
 
 module.exports = {
@@ -11,19 +10,18 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/test': {
-        target: 'http://mallcdn.api.epet.com',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/test': '/'
+      '/test': { // 匹配所有以 '/api'开头的请求路径
+        target: 'https://mallcdn.api.epet.com', // 代理目标的基础路径
+        changeOrigin: true, // 支持跨域
+        pathRewrite: {// 重写路径: 去掉路径中开头的'/api'
+          '^/test': ''
         }
       }
     },
-
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
@@ -50,7 +48,6 @@ module.exports = {
 
     cssSourceMap: true,
   },
-
   build: {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),

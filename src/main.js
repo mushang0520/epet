@@ -6,7 +6,7 @@ import router from './router'
 import store from './store'
 import { Swipe, SwipeItem } from 'mint-ui';
 
-import './mock/mockServer'
+//import './mock/mockServer'
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);

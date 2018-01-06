@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <!--分割线-->
+      <!-- 分割线 -->
       <div v-if="ad.type=='21'" class="custom_tite pt10">
         <div class="titmoudle ftc rela clum-tit pb5">
           <div class="leftimg titclass">
@@ -53,11 +53,11 @@
               </div>
             </div> <!----></div>
         </div> <!----></div>
-      <!--分割线-->
+      <!-- 分割线 -->
       <div v-if="ad.type=='100'" class="xline">
         <div class="page-line"></div>
       </div>
-      <!--分割线-->
+      <!-- 分割线 -->
       <div v-if="ad.type=='1'" class="banner_item">
         <div class="banner-scroll banner-scroll3 ">
           <div class="swiper-wrapper" style="width: 100%; height:160px ">
@@ -68,7 +68,7 @@
           </div>
         </div> <!---->
       </div>
-      <!--分割线-->
+      <!-- 分割线 4-->
       <div v-if="ad.type=='104'" class="fashion">
         <div>
           <ul class="cmVideoList cmVideoListIndex">
@@ -96,32 +96,19 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import {mapState,mapGetters} from 'vuex'
   export default {
     data(){
       return {
-        ads: []
+
       }
     },
     computed: {
-      ...mapState(['main'])
+      ...mapState(['main']),
+      ...mapGetters(['ads'])
 
     },
-    watch: {
-      main(){
-        let flag = false;
-        this.ads = this.main.datas.filter(item => {
-          if (!item.is_show) {
-            return false
-          }
-          if (item.type_name === "天天惊喜模板") {
-            flag = true
-            return false
-          }
-          return flag
-        })
-      }
-    }
+
   }
 
 </script>

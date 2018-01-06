@@ -12,6 +12,7 @@
     <div class="footer">
       <epetFooter v-show="$route.meta.isTop"/>
     </div>
+
   </div>
 </template>
 
@@ -19,6 +20,7 @@
 
 
   import epetFooter from './components/footer/footer.vue'
+
 
   export default {
 
