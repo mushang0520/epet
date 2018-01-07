@@ -9,6 +9,7 @@
     <transition name="router-fade">
       <router-view v-if="!$route.meta.keepAlive"></router-view>
     </transition>
+
     <div class="footer">
       <epetFooter v-show="$route.meta.isTop"/>
     </div>
@@ -26,7 +27,7 @@
 
     mounted(){
       this.$store.dispatch('getMain')
-      this.$store.dispatch('getDynamic')
+      //this.$store.dispatch('getDynamic')
     },
     components:{
       epetFooter

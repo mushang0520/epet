@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div id="content"  :class="{wid:isNew,widS:!isNew}">
+    <div id="content" :style="`position:relative;top:${topHight}px`">
       <shopList />
     </div>
 
@@ -36,10 +36,14 @@
   export default {
     data(){
       return {
-        isNew: !(localStorage.getItem('isNew')=='false')
+        isNew: !(localStorage.getItem('isNew')=='false'),
+
       }
     },
     computed:{
+      topHight(){
+        return this.isNew?161:106//106
+      },
       scrollTop(){return window.screenTop},
       isMove(){
           console.log(this.scrollTop);
@@ -79,10 +83,4 @@
       width: 100%
       &>img
         width: 100%
-  .wid
-    position relative
-    top: 161px
-  .widS
-    position relative
-    top: 106px
 </style>

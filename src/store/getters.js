@@ -2,7 +2,7 @@ export default {
   ads(state){
     let flag = false;
     let ads=[]
-    ads=state.main.datas.filter(item => {
+    ads=state.main.datas&&state.main.datas.filter(item => {
       if (!item.is_show) {
         return false
       }

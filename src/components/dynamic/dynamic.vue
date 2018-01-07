@@ -61,40 +61,43 @@
         timer:0
       }
     },
-    watch:{
-      dynamic(){
-          if(this.scroll){
-            this.scroll.refresh()
-          }else{
-            this.$nextTick(()=>{
-              console.log('this.$refs.sps',this.$refs.sps);
-              this.scroll=new BScroll(this.$refs.sps,{click: true, scrollX: true})
-
-            })
-          }
-        let endTime=this.dynamic.data['3'].time
-        this.timer=setInterval(()=>{
-          let date=parseInt((new Date()).getTime().toString().slice(0,10))
-          let timeDiff=endTime-date
-          if(timeDiff>0){
-            let hour=Math.floor(timeDiff/3600)
-            let min=Math.floor((timeDiff-hour*3600)/60)
-            let sec=(endTime-date)%60
-            this.hour = (''+hour).length==1 ? '0'+hour:hour
-            this.min = (''+min).length==1 ? '0'+min:min
-            this.sec = (''+sec).length==1 ? '0'+sec:sec
-          }else{
-            this.hour = '00'
-            this.min = '00'
-            this.sec = '00'
-          }
-        },1000)
-
-
-      }
-    },
     computed:{
       ...mapState(['dynamic'])
+
+      },
+    mounted (){
+      this.$store.dispatch('getDynamic',{cb:()=>{
+        this.$nextTick(()=>{
+          console.log('this.$watch');
+          if (this.scroll) {
+            this.scroll.refresh()
+          } else {
+            this.$nextTick(() => {
+              console.log('this.$refs.sps', this.$refs.sps);
+              this.scroll = new BScroll(this.$refs.sps, {click: true, scrollX: true})
+            })
+          }
+          if (!this.timer) {
+            let endTime = this.dynamic.data['3'].time * 1
+            this.timer = setInterval(() => {
+              let date = parseInt((new Date()).getTime().toString().slice(0, 10))
+              let timeDiff = endTime - date
+              if (timeDiff > 0) {
+                let hour = Math.floor(timeDiff / 3600)
+                let min = Math.floor((timeDiff - hour * 3600) / 60)
+                let sec = (endTime - date) % 60
+                this.hour = ('' + hour).length == 1 ? '0' + hour : hour
+                this.min = ('' + min).length == 1 ? '0' + min : min
+                this.sec = ('' + sec).length == 1 ? '0' + sec : sec
+              } else {
+                this.hour = '00'
+                this.min = '00'
+                this.sec = '00'
+              }
+            }, 1000)
+          }
+        })
+      }})
 
     },
     beforeDestroy(){

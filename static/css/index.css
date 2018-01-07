@@ -182,6 +182,7 @@ body {
 }
 img{
   max-width: 100%;
+  vertical-align: middle;
 }
 .flex{
   display: flex;
@@ -196,4 +197,74 @@ img{
   top: 50%;
   margin-left: -10px;
   margin-top: -10px;
+}
+.sort-detail-list .hot-recom, .sort-detail-list .other-list {
+  padding: 15px 5px 20px;
+}
+.bbtf3 {
+  border-top: 1px solid #f3f4f5;
+}
+.sort-detail-list .hot-recom ul li, .sort-detail-list .other-list ul li {
+  width: 33.33%;
+  padding: 0 5px;
+}
+.hot-recom ul li.llogo{
+   width: 50%!important;
+ }
+
+.mt10, .mt {
+  margin-top: 10px;
+}
+.jian {
+  width: 13px;
+  height: 13px;
+  top: 0;
+  left: 5px;
+}
+.abs {
+  position: absolute;
+}
+a img {
+  border: 0;
+}
+li.llogo .img {
+  border: 1px solid #f3f4f5;
+  text-align: center;
+  padding: 55px 10px 10px;
+  /*background: url(../images/background/default-epet2.jpg) no-repeat center center #fff;*/
+  /*background-size: 120px auto;*/
+}
+.loadimg-nofixed {
+  /*background: url(../images/background/default-epet.png) no-repeat center center #f4f4f4;*/
+  /*background-size: 120px auto;*/
+  position: relative;
+  padding-top: 100%;
+}
+.loadimg-nofixed .image {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+li.llogo .lheight {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.lheight {
+  height: 45px;
+  max-width: 100%;
+}
+.hot-recom li p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 20px;
+}
+li.llogo .logo {
+  font-size: 8px;
+  padding: 0 2px;
+  background: #e44b46;
+  top: 0;
+  right: 5px;
 }

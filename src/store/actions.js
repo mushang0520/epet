@@ -12,14 +12,16 @@ export default {
       }
     )
   },
-  getDynamic({commit}){
+  getDynamic({commit},{cb}){
     let data=GetDynamic().then(res=>{
       if(res.data.code == 'succeed'){
        // 进行Unicode解码
-        let dynamic=JSON.stringify(res.data)
-          .replace(/\\n[a-z0-9]{4}/g, s => s.fromCodePoint)
-        dynamic=JSON.parse(dynamic)
-        commit(GET_DYNAMIC,{dynamic})
+          let dynamic=JSON.stringify(res.data)
+            .replace(/\\n[a-z0-9]{4}/g, s => s.fromCodePoint)
+          dynamic=JSON.parse(dynamic)
+          commit(GET_DYNAMIC,{dynamic})
+        cb()
+
       }
       }
     )
@@ -36,7 +38,7 @@ export default {
       }
     )
   },
-  getCategoryChildren({commit},{cateid}){
+  getCategoryChildren({commit},{cateid,cb}){
     let data=GetCategoryChildren(cateid).then(res=>{
           console.log('GetCategoryChildren',res);
       if(res.data.code == 'succeed'){
@@ -45,6 +47,7 @@ export default {
               .replace(/\\n[a-z0-9]{4}/g, s => s.fromCodePoint)
             categoryChildren=JSON.parse(categoryChildren)
             commit(GET_CATEGORY_CHILDREN,{categoryChildren})
+        cb&&cb()
           }
       }
     )
