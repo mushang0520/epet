@@ -10,6 +10,8 @@ const category =()=> import( '../pages/category/category.vue')
 const cart =()=> import( '../pages/cart/cart.vue')
 const user =()=> import( '../pages/user/user.vue')
 const place =()=> import( '../pages/place/place.vue')
+const search =()=> import( '../pages/search/search.vue')
+const keylist =()=> import( '../pages/keylist/keylist.vue')
 
 Vue.use(Router)
 
@@ -18,16 +20,24 @@ export default new Router({
     {
       path: '/',
       redirect: '/home',
-      meta: {keepAlive: true, isTop: true}
+      meta: {keepAlive: false, isTop: true}
     },
     {
       path: '/home',
       component: home,
-      meta: {keepAlive: true, isTop: true}
+      meta: {keepAlive: false, isTop: true}
     },
     {
       path: '/place',
       component: place
+    },
+    {
+      path: '/keylist',
+      component: keylist
+    },
+    {
+      path: '/search',
+      component: search
     },
     {
       path: '/category',

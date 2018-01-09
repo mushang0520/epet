@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list">
     <div v-for="(ad,i) in ads">
       <div v-if="ad.type=='13'" class="currency_ad">
         <div class="currency-adcon dibimg1">

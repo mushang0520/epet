@@ -22,7 +22,10 @@ export default async (url = '', data = {}, type = 'GET', method = 'fetch') => {
 			method: type,
 			headers: {
 				'Accept': 'application/json',
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+        'Referer': 'https://wap.epet.com/',
+        'Origin': 'https://wap.epet.com',
+        'Host': 'wap.epet.com'
 			},
 			mode: "cors",
 			cache: "force-cache"

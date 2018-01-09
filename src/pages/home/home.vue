@@ -1,31 +1,30 @@
 <template>
   <div>
-    <div class="headContent floathearder">
-      <div ref="downloadApp" class="overflow " style="display: block;" :class="{floathearder:isMove}" v-if="isNew">
-        <div class="overflow rela">
+    <scroller >
+      <div class="headContent floathearder">
+        <div ref="downloadApp" class="overflow " style="display: block;" :class="{floathearder:isMove}" v-if="isNew">
+          <div class="overflow rela">
           <span @click="closeDownload" class="clsoebtn">
             <img id="close_down_bar" src="//static.epetbar.com/static_wap/lib/common_images/closebtn_03.png">
           </span>
-          <div class="downloadApp">
-            <a href="http://wap.epet.com/download.html?appname=epetmall" style="display: block;">
-              <img src="../../../static/img/downloadApp.jpg">
-            </a>
+            <div class="downloadApp">
+              <a href="http://wap.epet.com/download.html?appname=epetmall" style="display: block;">
+                <img src="../../../static/img/downloadApp.jpg">
+              </a>
+            </div>
           </div>
         </div>
+        <!-- <div ref="downloadApp" class="downloadApp" :class="{floathearder:isMove}" v-if="isNew">
+           <img src="../../../static/img/downloadApp.jpg">
+         </div>-->
+        <div ref="header" class="header" :class="{floathearder:isMove}">
+          <epetHeader/>
+        </div>
       </div>
-     <!-- <div ref="downloadApp" class="downloadApp" :class="{floathearder:isMove}" v-if="isNew">
-        <img src="../../../static/img/downloadApp.jpg">
-      </div>-->
-      <div ref="header" class="header" :class="{floathearder:isMove}">
-        <epetHeader/>
+      <div id="content" :style="`position:relative;top:${topHight}px`">
+        <shopList />
       </div>
-    </div>
-
-    <div id="content" :style="`position:relative;top:${topHight}px`">
-      <shopList />
-    </div>
-
-    <button @click="test">test</button>
+    </scroller >
   </div>
 </template>
 
@@ -54,14 +53,14 @@
       shopList
     },
     methods:{
+      onScroll:function(e, position){
+        this.position = position;
+      },
       closeDownload(){
         this.isNew=false
         localStorage.setItem('isNew','false')
       },
-      test(){
-        console.log(this.$refs.downloadApp.scrollHeight);
-        console.log(window.scrollHeight);
-      }
+
     }
   }
 
@@ -69,6 +68,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .headContent
+    width 375px
     .clsoebtn
       display: inline-block;
       width: 5%;

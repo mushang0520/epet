@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app" style="height: 100%;width: 100%">
     <transition name="router-fade">
       <keep-alive>
         <router-view v-if="$route.meta.keepAlive"></router-view>
@@ -45,5 +45,11 @@
         transition: opacity .3s;
       .router-fade-enter, .router-fade-leave-to
         opacity: 0;
+
+    .footer
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 375px;
 
 </style>

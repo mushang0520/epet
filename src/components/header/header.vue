@@ -6,26 +6,25 @@
           <div class="main">
             <div class="clearfix pt5 pl10 pr10 pb5">
               <div class="epet-search bgf">
-                <div class="fl rela ft14 location">
+                <div class="fl rela ft14 location" :style="`margin-right:${defaultPlace.length==2?20:10}px`">
                   <router-link to="/place">
                     <span class="catordog c89">狗狗站</span>
                     <span class="c89">|</span>
-                    <span data-name="my-place" class="myposition c89 ft13">重庆</span>
+                    <span data-name="my-place" class="myposition c89 ft13">{{defaultPlace}}</span>
                     <i></i>
                   </router-link>
                 </div>
                 <p class="search-text">
-                  <a href="https://wap.epet.com/search.html?pet_type=dog&amp;fw=0">
+                  <router-link to="/search">
                     <input type="search" placeholder="搜索商品和品牌" disabled="disabled">
                     <span class="eico serach-ico"></span>
-                  </a>
+                  </router-link>
                 </p>
                 <a href="https://wap.epet.com/wappms/pms.html?fw=0" class="epet-category ml10">
                   <img src="//static.epetbar.com/static_web/wap/src/images/mydope.png">
                 </a>
               </div>
             </div>
-            <router-view></router-view>
           </div>
           <div class="find_nav">
             <div ref="findNav" class="find_nav_left dscroll">
@@ -95,7 +94,9 @@
   export default {
     data(){
       return {
-        NO:0
+        NO:0,
+        defaultPlace:(localStorage.getItem('defaultPlace')
+        && localStorage.getItem('defaultPlace').split('_')[0])||'重庆'
       }
     },
     computed: {
@@ -121,6 +122,7 @@
       }
     },
     mounted(){
+      this.defaultPlace=localStorage.getItem('defaultPlace').split('_')[0]
       this.Scroll = new BScroll(this.$refs.findNav, {click: true, scrollX: true})
     }
   }
@@ -142,7 +144,7 @@
               -webkit-box-align: center;
               display: -moz-box;
               -moz-box-align: center;
-              width: 100%;
+              width: 355px;
               .location
                 float: left
                 margin-right: 20px;

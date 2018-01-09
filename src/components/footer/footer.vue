@@ -6,14 +6,8 @@
         <li class="type-a"><router-link to="/category"></router-link></li>
         <li class="cart-a"><router-link to="/cart"></router-link></li>
         <li class="myepet-a"><router-link to="/user"></router-link></li>
-        <router-view></router-view>
       </ul>
     </div>
-
-
-
-
-
   </div>
 </template>
 
@@ -26,13 +20,10 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .footernav
     height: 45px;
-    box-sizing: content-box;
+    /*box-sizing: content-box;*/
     .footernav_ul
       height: 45px;
       line-height: 45px;
-      position: fixed;
-      bottom: 0;
-      left: 0;
       width: 100%;
       z-index: 103;
       border-top: 1px solid #e7e7e7;
